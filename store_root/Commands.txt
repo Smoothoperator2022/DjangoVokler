@@ -1,0 +1,76 @@
+﻿# Virtual environment launch
+cd C:\Djangoweb\venv\Scripts
+activate
+
+#Run server
+cd C:\Djangoweb\exploreDj_root
+python manage.py runserver
+
+#
+cd keys
+ssh-keys
+test_git
+
+#create a virtual environment
+C:\Users\�����.��>cd C:\exploreDj
+C:\exploreDj>python -m venv venv
+C:\exploreDj>cd C:\exploreDj\venv\Scripts
+C:\exploreDj\venv\Scripts>activate
+
+(venv) C:\exploreDj\venv\Scripts>python -m pip install Django
+(venv) C:\exploreDj\venv\Scripts>cd C:\exploreDj
+(venv) C:\exploreDj>Django-admin startproject landingpagewebsite
+(venv) C:\exploreDj\landingpagewebsite_root>python manage.py runserver
+
+#show commands
+(venv) PS C:\DjangoVokler\store_root> python manage.py --help #can use './manage.py' instead 'python'
+#'django --admin' and 'manage.py' launch same processes
+(venv) PS C:\DjangoVokler\store_root> python manage.py startapp products
+
+python manage.py makemigrations
+python manage.py shell # py console
+
+from products.models import ProductCategory
+category = ProductCategory (name="������", description="�������� ��� ������")
+
+python manage.py createsuperuser # create administrator
+
+import sys
+sys.path.append("C:\DjangoVokler\store_root")
+print (sys.path)
+import os
+os.environ.setdefault('DJANGO_SETTINGS_MODULE','store.settings')
+import django
+django.setup()
+['C:\\Program Files\\JetBrains\\PyCharm Community Edition 2022.3.2\\plugins\\python-ce\\helpers\\pydev', 'C:\\Program Files\\JetBrains\\PyCharm Community Edition 2022.3.2\\plugins\\python-ce\\helpers\\third_party\\thriftpy', 'C:\\Program Files\\JetBrains\\PyCharm Community Edition 2022.3.2\\plugins\\python-ce\\helpers\\pydev', 'C:\\DjangoVokler', 'C:\\Python\\python310.zip', 'C:\\Python\\DLLs', 'C:\\Python\\lib', 'C:\\Python', 'C:\\DjangoVokler\\venv', 'C:\\DjangoVokler\\venv\\lib\\site-packages', 'C:\\DjangoVokler', 'C:\\DjangoVokler\\store_root', 'C:\\DjangoVokler\\store_root']
+
+#creating an object
+from products.models import ProductCategory
+category = ProductCategory (name='Одяг', description='Опис одягу')
+category.save()
+category = ProductCategory.objects.get(id=3)
+ProductCategory.objects.create(name='Взуття')
+ProductCategory.objects.all() #django list
+ProductCategory.objects.filter(description=None)
+
+
+[
+            {
+                'image': '/static/vendor/img/products/Adidas-hoodie.png',
+                'name': 'Худи черного цвета с монограммами adidas Originals',
+                'price': 6090,
+                'description': 'Мягкая ткань для свитшотов. Стиль и комфорт – это образ жизни',
+            },
+            {
+                'image': '/static/vendor/img/products/Blue-jacket-The-North-Face.png',
+                'name': 'Синяя куртка The North Face',
+                'price': 23720,
+                'description': 'Гладкая ткань. Водонепроницаемое покрытие. Легкий и теплый пуховый наполнитель.',
+            },
+            {
+                'image': '/static/vendor/img/products/Brown-sports-oversized-top-ASOS-DESIGN.png',
+                'name': 'Коричневый спортивный oversized-топ ASOS DESIGN',
+                'price': 3390,
+                'description': 'Материал с плюшевой текстурой. Удобный и мягкий',
+            }
+        ]
